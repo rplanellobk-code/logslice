@@ -75,3 +75,11 @@ func TestApplyPreservesRestOfLine(t *testing.T) {
 		t.Errorf("suffix not preserved: %q", got)
 	}
 }
+
+func TestApplyEmptyLine(t *testing.T) {
+	h, _ := New(`ERROR`)
+	got := h.Apply("")
+	if got != "" {
+		t.Errorf("expected empty string for empty input, got %q", got)
+	}
+}
